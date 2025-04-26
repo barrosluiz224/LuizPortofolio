@@ -17,11 +17,11 @@ const particlesConfig = {
         color: "#000"
       },
       image: [
-        {
-          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
-          width: 100,
-          height: 100
-        },
+        // {
+        //   src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+        //   width: 100,
+        //   height: 100
+        // },
         {
           src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
           width: 100,

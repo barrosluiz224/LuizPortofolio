@@ -1,7 +1,7 @@
 const particlesConfig = {
   particles: {
     number: {
-      value: 6,
+      value: 10,
       density: {
         enable: true,
         value_area: 800
@@ -11,57 +11,71 @@ const particlesConfig = {
       value: "#1b1e34"
     },
     shape: {
-      type: "polygon",
+      type: "image",
       stroke: {
         width: 0,
         color: "#000"
       },
-      polygon: {
-        sides: 6
-      },
-      image: {
-        src: "img/github.svg",
-        width: 100,
-        height: 100
-      }
+      image: [
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+          width: 100,
+          height: 100
+        },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+          width: 100,
+          height: 100
+        },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg",
+          width: 100,
+          height: 100
+        },
+        {
+          src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+          width: 100,
+          height: 100
+        }
+      ]
     },
     opacity: {
-      value: 0.3,
+      value: 0.7,
       random: true,
       anim: {
-        enable: false,
+        enable: true,
         speed: 1,
-        opacity_min: 0.1,
+        opacity_min: 0.4,
         sync: false
       }
     },
     size: {
-      value: 160,
-      random: false,
+      value: 30,
+      random: true,
       anim: {
         enable: true,
-        speed: 10,
-        size_min: 40,
+        speed: 3,
+        size_min: 20,
         sync: false
       }
     },
     line_linked: {
-      enable: false,
-      distance: 200,
-      color: "#ffffff",
-      opacity: 1,
-      width: 2
+      enable: true,
+      distance: 150,
+      color: "#1b1e34",
+      opacity: 0.4,
+      width: 1
     },
     move: {
       enable: true,
-      speed: 8,
+      speed: 2,
       direction: "none",
-      random: false,
+      random: true,
       straight: false,
-      out_mode: "out",
-      bounce: false,
+      out_mode: "bounce",
+      bounce: true,
       attract: {
-        enable: false,
+        enable: true,
         rotateX: 600,
         rotateY: 1200
       }
@@ -71,11 +85,11 @@ const particlesConfig = {
     detect_on: "canvas",
     events: {
       onhover: {
-        enable: false,
-        mode: "grab"
+        enable: true,
+        mode: "repulse"
       },
       onclick: {
-        enable: false,
+        enable: true,
         mode: "push"
       },
       resize: true
@@ -106,7 +120,13 @@ const particlesConfig = {
       }
     }
   },
-  retina_detect: true
-}
+  retina_detect: true,
+  background: {
+    color: "transparent",
+    position: "50% 50%",
+    repeat: "no-repeat",
+    size: "cover"
+  }
+};
 
-export default particlesConfig
+export default particlesConfig;

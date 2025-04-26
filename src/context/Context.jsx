@@ -5,29 +5,28 @@ import {IntlProvider} from 'react-intl';
 
 const langContext = React.createContext();
 
-
 const LangProvider = ({children}) => {
-    let localePorDefecto;
-	let mensajesPorDefecto;
-	const lang = localStorage.getItem('lang');
+    // Set default values
+    let localePorDefecto = 'en-US';
+    let mensajesPorDefecto = MensajeIngles;
+    
+    // Check if there's a stored language preference
+    const lang = localStorage.getItem('lang');
 
-	if(lang){
-		localePorDefecto = lang
-
-		if(lang === 'es-ES'){
-			mensajesPorDefecto = MensajeEspañol;
-		} else if(lang === 'en-US'){
-			mensajesPorDefecto = MensajeIngles;
-		} else {
-			localePorDefecto = 'en-US'
-			mensajesPorDefecto = MensajeIngles;
-		}
-	}
+    if(lang) {
+        if(lang === 'es-ES') {
+            localePorDefecto = 'es-ES';
+            mensajesPorDefecto = MensajeEspañol;
+        } else if(lang === 'en-US') {
+            localePorDefecto = 'en-US';
+            mensajesPorDefecto = MensajeIngles;
+        }
+    }
 
     const [mensaje, setMensaje] = useState(mensajesPorDefecto);
     const [locale, setLocale] = useState(localePorDefecto);
 
-    const selectLanguage = (language) =>{
+    const selectLanguage = (language) => {
         switch (language) {
             case 'es-ES':
                 setMensaje(MensajeEspañol);
@@ -45,9 +44,10 @@ const LangProvider = ({children}) => {
                 localStorage.setItem('lang', 'en-US');
         }
     }
+
     return (
         <langContext.Provider value={{selectLanguage: selectLanguage}}>
-            <IntlProvider locale={locale} messages={mensaje}>
+            <IntlProvider locale={locale} messages={mensaje} defaultLocale="en-US">
                 {children}
             </IntlProvider>
         </langContext.Provider>
